@@ -2049,7 +2049,6 @@ body.visible-menu-bar .fullscreen-menu{
 	line-height: 1.7em;
 	max-width: 630px;
 	margin: 0 auto;
-	color:white;
 }
 
 .banner-section .inner-section .theme-btn{
@@ -2252,7 +2251,7 @@ body.visible-menu-bar .fullscreen-menu{
 	position: relative;
 	display:block;
 	overflow:hidden;
-	background:#000000;
+	background: white;
 }
 
 .gallery-block-three .inner-box .image img{
