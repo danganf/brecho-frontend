@@ -16,7 +16,7 @@
           </div>
           <div class="nav-outer clearfix">
             <!-- <c-menu></c-menu> -->
-            <div class="outer-box clearfix">
+            <!-- <div class="outer-box clearfix">
               <div class="social-nav">
                 <a href="https://www.facebook.com/"
                   ><span class="fa fa-facebook"></span
@@ -25,7 +25,7 @@
                   ><span class="fa fa-instagram"></span
                 ></a>
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>

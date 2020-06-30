@@ -1,6 +1,14 @@
 <template>
   <div>
     <div class="preloader" v-if="preloader" style="display: block;"></div>
+    <modal name="hello-world" :height="150">
+      <div style="padding: 20px">
+        Caso você goste alguma peça, copia o código da referencia, que fica logo abaixo do título,
+        e nos envio um WhatsApp para <strong>(21) 98440-7699</strong> ou <strong>(21) 98169-2318</strong>.
+        <br><br>
+        <p style="text-align: center">Infelizmente, no momento, as peça são únicas, então corra!! <strong>:)</strong></p>
+      </div>
+    </modal>
     <div class="kc_clfw"></div>
     <section class="kc-elm kc-css-408608 kc_row">
       <div class="kc-row-container">
@@ -21,8 +29,8 @@
                       <i class="paroller"></i>
                     </h2>
                     <div class="text">
-                      Temos itens usados e semi novos... todos em perfeito
-                      estado de uso
+                      Temos itens usados e semi novos... todos em perfeito estado de uso. 
+                      <button class="btn btn-info" style="margin-top:20px" @click="show">Veja como funciona</button>                     
                     </div>
                   </div>
                 </div>
@@ -30,18 +38,18 @@
               <!--End Banner Section-->
 
               <section class="gallery-section-two">
-                <div class="outer-container">
-                  <div class="row clearfix">
+                <div class="outer-container">                
+                  <div class="row clearfix">                
                     <div v-for="prod in products" :key="`prod-` + prod.id" class="gallery-block-three col-xl-2 col-lg-3 col-md-4 com-sm-12">
                       <div class="inner-box wow fadeInUp animated" style="visibility: visible; animation-delay: 400ms; animation-name: fadeInUp;">
                         <div class="image">
-                          <a href="#">
+                          <a :href="prod.image" target="_blank">
                             <div class="corner-text-wrapper">
                               <div class="corner-text" :class="{free : !prod.price}">
                                 <span>{{ prod.price ? 'R$ ' + prod.price : 'GRÁTIS'}}</span>
                               </div>
                             </div>
-                            <img width="200" height="200" :src="`../../static/img/${prod.image}`" class="wp-post-image" alt="" sizes="(max-width: 200px) 100vw, 200px"
+                            <img width="200" height="200" :src="prod.image" class="wp-post-image" alt="" sizes="(max-width: 200px) 100vw, 200px"
                             />
                           </a>
                         </div>
@@ -49,7 +57,11 @@
                           <h3>
                             <a href="#" >{{prod.name}}</a>
                           </h3>
-                          <div class="category">{{prod.type}} - Bloco 7 Apart 203</div>
+                          <div class="category">
+                            {{prod.type}} - Ref:. {{padLeft(prod.id, 4)}}
+                            <br>
+                            Bloco 7 Apart 203
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -85,6 +97,15 @@ export default {
           console.log(error);
           this.preloader = false;
         });
+    },
+    padLeft(nr, n, str){
+      return Array(n-String(nr).length+1).join(str||'0')+nr;
+    },
+    show() {
+    this.$modal.show('hello-world');
+    },
+    hide() {
+      this.$modal.hide('hello-world');
     }
   },
   mounted() {
